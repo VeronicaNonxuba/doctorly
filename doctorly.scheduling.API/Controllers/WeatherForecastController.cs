@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace doctorly.scheduling.API.Controllers;
 
 [ApiController]
