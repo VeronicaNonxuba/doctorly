@@ -1,4 +1,5 @@
 using System.Text;
+using doctorly.scheduling.Domain.Services;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,10 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Implement Dependency Injection
+builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<INotificationService, EmailNotificationService>();
 
 //Add Authentication
 var secretKey = builder.Configuration.GetValue<string>("SecretKey");
